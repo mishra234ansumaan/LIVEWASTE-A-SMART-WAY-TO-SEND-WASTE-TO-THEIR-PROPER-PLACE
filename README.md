@@ -492,3 +492,10 @@ const [isLoading, setIsLoading] = useState(true);
 const [isInitialized, setIsInitialized] = useState(false);
 const [showLocationModal, setShowLocationModal] = useState(false);
 const [pendingRole, setPendingRole] = useState<UserRole>(null);
+
+
+// Location state (default: Sambalpur, Odisha)
+const [userLocation, setUserLocation] = useState<{ lat: number; lng: number }>({
+  lat: 21.4669,
+  lng: 83.9812,
+});
