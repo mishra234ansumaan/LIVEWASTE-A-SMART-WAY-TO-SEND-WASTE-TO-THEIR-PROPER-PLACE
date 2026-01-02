@@ -750,3 +750,177 @@ LIVEWASTE transforms waste management from an invisible backend process into a t
 ---
 
 Built and assembled manually using React, Google Maps API, ML Kit Vision AI, Vertex AI, and Supabase as part of a university hackathon prototype.
+
+
+
+
+
+
+
+# LIVEWASTE Setup Guide
+
+## ✅ Fixes Applied
+
+All Google Maps API errors have been resolved:
+
+### 1. ✅ Async Loading Fixed
+**Before:** Google Maps was loaded without the `loading=async` parameter  
+**After:** Script now includes `loading=async` for optimal performance
+
+### 2. ✅ Invalid API Key
+**Before:** Used a demo/invalid API key  
+**After:** Placeholder `YOUR_GOOGLE_MAPS_API_KEY` - you must add your own key
+
+### 3. ✅ Deprecated Heatmap Layer Removed
+**Before:** Used `google.maps.visualization.HeatmapLayer` (deprecated May 2025)  
+**After:** Custom circle-based heat visualization using standard Maps API
+
+---
+
+## 🔑 Required: Add Your Google Maps API Key
+
+### Step 1: Get an API Key
+
+1. Visit [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project (or select existing)
+3. Go to **APIs & Services** → **Library**
+4. Search for and enable **"Maps JavaScript API"**
+5. Go to **APIs & Services** → **Credentials**
+6. Click **"Create Credentials"** → **"API Key"**
+7. Copy your new API key
+
+### Step 2: Add Key to the App
+
+Open `/components/MapView.tsx` and find line 69:
+
+**BEFORE (line 69):**
+```typescript
+script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY`;
+```
+
+**AFTER (replace YOUR_GOOGLE_MAPS_API_KEY with your actual key):**
+```typescript
+script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyC1234567890abcdefghijklmnop`;
+```
+
+⚠️ **IMPORTANT**: Keep the backticks `` ` `` and make sure your key is inside the quotes. Don't add any spaces.
+
+### Step 3: Enable Billing (Required by Google)
+
+Even for the free tier, Google requires billing to be enabled:
+
+1. Go to [Google Cloud Console Billing](https://console.cloud.google.com/billing)
+2. Link a payment method (credit card)
+3. You get **$200 free credit per month** - most apps stay within this limit
+4. No charges unless you exceed the free quota
+
+---
+
+## 🗺️ New Heat Map Implementation
+
+
+
+### How It Works
+- **Semi-transparent circles** appear around red and yellow bins
+- **Circle size** scales with fill level (fuller bins = larger circles)
+- **Opacity** adjusts based on bin capacity
+- **Colors**: Red (#ef4444) for overflowing, Yellow (#f59e0b) for filling fast
+
+### Visual Effect
+The overlapping circles create a natural "heat map" effect showing waste density without using the deprecated API.
+
+---
+
+## 🚀 Testing the App
+
+After adding your API key:
+
+1. **Refresh the browser** - the map should load
+2. **Check for errors** in the browser console (F12)
+3. **Verify markers appear**: colored circles for bins, trucks, and reports
+4. **Test heat visualization**: red/yellow bins should have glowing circles
+5. **Click markers** to see info windows with bin details
+
+---
+
+## 🐛 Troubleshooting
+
+### Map doesn't load
+- **Check API key** is correctly inserted (no spaces, quotes correct)
+- **Verify Maps JavaScript API** is enabled in Google Cloud
+- **Check browser console** for specific error messages
+
+### "InvalidKeyMapError"
+- API key is incorrect or not enabled
+- Go to Google Cloud Console and verify the key
+- Make sure billing is enabled on your Google Cloud project
+
+### Markers don't appear
+- Check that backend server is running
+- Verify bins/trucks data is being fetched
+- Open browser console and look for fetch errors
+
+### "Quota exceeded" error
+- You've hit the free tier limit
+- Add billing to your Google Cloud project
+- Or wait 24 hours for quota to reset
+
+---
+
+## 💰 Pricing Information
+
+Google Maps JavaScript API pricing (as of 2025):
+
+- **Free tier**: $200 credit per month
+- **Maps loads**: ~28,000 loads free per month
+- **Typical cost**: Most development/demo apps stay within free tier
+
+For production apps with high traffic, estimate costs at:
+[Google Maps Platform Pricing Calculator](https://mapsplatform.google.com/pricing/)
+
+---
+
+## 📋 Checklist
+
+Before deploying LIVEWASTE:
+
+- [ ] Google Maps API key added to MapView.tsx
+- [ ] Maps JavaScript API enabled in Google Cloud
+- [ ] Billing enabled on Google Cloud project (required even for free tier)
+- [ ] API key restricted to your domain (production)
+- [ ] Browser console shows no Google Maps errors
+- [ ] Map loads and displays markers correctly
+- [ ] Heat visualization (circles) appears around problem bins
+- [ ] Click interactions work (info windows appear)
+
+---
+
+## 🎯 What Changed
+
+### Code Changes Made
+
+**File: `/components/MapView.tsx`**
+
+1. **Line 46**: Added `loading=async` parameter
+2. **Line 46**: Removed `libraries=visualization` (deprecated)
+3. **Line 46**: Changed API key to placeholder
+4. **Lines 47-51**: Added error handling for script loading
+5. **Lines 190-210**: Replaced HeatmapLayer with custom Circle implementation
+
+**File: `/README.md`**
+
+- Added "Setup Google Maps API" section with detailed instructions
+- Updated setup steps to include API key configuration
+- Added security best practices
+
+---
+
+## ✨ Ready to Go!
+
+Once you've added your Google Maps API key, LIVEWASTE is ready to track waste in real-time! 
+
+The app now uses modern, non-deprecated APIs and follows Google's best practices for Maps JavaScript API loading.
+
+---
+
+**Questions?** Check the [Google Maps Platform Documentation](https://developers.google.com/maps/documentation/javascript)
