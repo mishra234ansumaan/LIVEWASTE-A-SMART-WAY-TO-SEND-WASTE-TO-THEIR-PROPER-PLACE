@@ -507,3 +507,24 @@ const [trucks, setTrucks] = useState([]);
 const [reports, setReports] = useState([]);
 const [predictions, setPredictions] = useState([]);
 const [stats, setStats] = useState({ ... });
+
+
+
+
+
+
+# Attributions
+
+This project was manually designed and assembled as a functional prototype for a university hackathon.
+
+## UI Components
+This project uses UI components from [shadcn/ui](https://ui.shadcn.com/)  
+Licensed under the [MIT License](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md).
+
+All components were manually integrated, styled, and customized to fit the project’s user flow and design requirements.
+
+## Images
+This project includes photos from [Unsplash](https://unsplash.com)  
+Used under the [Unsplash License](https://unsplash.com/license).
+
+Images were selected and placed intentionally for demonstration purposes within the prototype.
