@@ -817,7 +817,7 @@ Even for the free tier, Google requires billing to be enabled:
 ---
 
 ## 🗺️ New Heat Map Implementation
-
+Since the original HeatmapLayer became deprecated during development, a custom solution was implemented:
 
 
 ### How It Works
