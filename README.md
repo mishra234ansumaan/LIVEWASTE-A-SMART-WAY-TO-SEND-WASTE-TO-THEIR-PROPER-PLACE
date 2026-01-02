@@ -1,6 +1,10 @@
 # LIVEWASTE-A-SMART-WAY-TO-SEND-WASTE-TO-THEIR-PROPER-PLACE
 Basically the app LIVEWASTE leverages Google AI and maps to identify garbage from images and display cleanliness status live on a city map. Just like traffic waste becomes visible , trackable , and actionable in real time. 
 I am writing the programming codes I have used for this.
+
+// Hackathon prototype entry point for LIVEWASTE
+// Focus: user flow clarity, real-time visualization, and demo stability
+
 import React, { useState, useEffect } from "react";
 import { Users, Truck, Loader2 } from "lucide-react";
 import { Button } from "./components/ui/button";
