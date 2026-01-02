@@ -129,9 +129,7 @@ export default function App() {
           completedToday: 0,
         },
       );
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    } 
   };
 
   const handleReport = async (report: any) => {
@@ -499,3 +497,11 @@ const [userLocation, setUserLocation] = useState<{ lat: number; lng: number }>({
   lat: 21.4669,
   lng: 83.9812,
 });
+
+
+// Data state
+const [bins, setBins] = useState([]);
+const [trucks, setTrucks] = useState([]);
+const [reports, setReports] = useState([]);
+const [predictions, setPredictions] = useState([]);
+const [stats, setStats] = useState({ ... });
