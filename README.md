@@ -528,3 +528,225 @@ This project includes photos from [Unsplash](https://unsplash.com)
 Used under the [Unsplash License](https://unsplash.com/license).
 
 Images were selected and placed intentionally for demonstration purposes within the prototype.
+
+
+
+
+
+
+
+
+# LIVEWASTE 🗑️
+
+**Real-time City Waste Flow Tracking - Like Google Traffic, but for Waste**
+
+A Progressive Web App that makes city waste flow visible in real-time, turning waste collection into a live, trackable system just like Google Maps shows traffic patterns.
+
+---
+
+## 🌟 Features
+
+### For Citizens
+- **📸 AI Waste Scanner**: Use your phone camera to detect garbage piles and overflowing bins with ML Kit Vision AI
+- **🗺️ Live Waste Heat Map**: See real-time waste status across your city with color-coded zones
+  - 🔴 **Red Zones**: Overflowing bins requiring immediate attention
+  - 🟡 **Yellow Zones**: Bins filling fast, approaching capacity
+  - 🟢 **Green Zones**: Recently cleared, good condition
+- **⚡ 1-Tap Reporting**: Quick report overflow, illegal dumps, missed pickups, and scattered waste
+- **📍 Location-Based Issues**: View pending waste problems in your neighborhood
+- **🔔 Push Notifications**: Get alerts when high-priority issues appear nearby
+- **🏆 Leaderboard**: Compete with other citizens, earn points and badges for contributions
+- **✨ Before/After Gallery**: See the impact of cleanups with before/after photo comparisons
+
+### For Workers
+- **🚛 Active Route Management**: View optimized collection routes on interactive map
+- **✅ Pickup Confirmation**: Quick one-tap confirmation when tasks are completed
+- **⚠️ Priority Tasks**: High-priority items (red zones) automatically sorted to top
+- **🔮 AI Predictions**: Vertex AI predicts which bins will overflow next with confidence scores
+- **📊 Real-time Dashboard**: Track active trucks, pending tasks, and completion stats
+- **🔔 Task Notifications**: Receive alerts for new high-priority assignments
+- **🏆 Leaderboard**: Track performance, earn badges for speed and quality
+- **📸 Before/After Gallery**: Document your work and get community appreciation
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+- **React** with TypeScript
+- **Tailwind CSS** for styling
+- **Google Maps API** for mapping and visualization
+- **Heat Map Layer** for waste density visualization
+- Mobile-first responsive design optimized for Android
+
+### Backend
+- **Supabase** for real-time data synchronization
+- **Edge Functions** with Hono web server
+- **Key-Value Store** for data persistence
+
+### AI & ML
+- **ML Kit Vision AI** for garbage detection from photos (simulated)
+- **Vertex AI** for predictive analytics (simulated)
+- Real-time waste pattern analysis
+
+---
+
+## 📱 User Flows
+
+### Citizen Flow
+1. Select "I'm a Citizen" on login screen
+2. View live waste map with color-coded zones
+3. Report waste by:
+   - Scanning with AI camera (detects waste type automatically)
+   - Tapping map location + selecting issue type
+4. See nearby pending issues and their status
+5. Get real-time updates as workers clear areas
+
+### Worker Flow
+1. Select "I'm a Worker" on login screen
+2. View priority task list sorted by urgency
+3. See active truck locations on map
+4. Tap task to view details and location
+5. Confirm pickup completion with one tap
+6. Monitor AI predictions for upcoming overflows
+
+---
+
+## 🎯 Key Capabilities
+
+### Real-Time Tracking
+- Live updates every 10 seconds
+- Truck location tracking
+- Bin status synchronization
+- Report notifications
+
+### Visual Heat Mapping
+- Color-coded bin markers
+- Gradient heat map overlay for waste density
+- Report markers for pending issues
+- Truck icons showing active vehicles
+
+### Smart Predictions
+- Fill level analysis
+- Time-to-overflow calculations
+- Priority scoring (high/medium/low)
+- Confidence percentages
+
+### Mobile Optimization
+- Touch-friendly interface
+- Responsive design for all screen sizes
+- PWA capabilities for Android installation
+- Optimized for one-handed use
+- Safe area support for notched devices
+
+---
+
+## 📊 Data Structure
+
+### Bins
+- Location (lat/lng)
+- Status (red/yellow/green)
+- Fill level percentage
+- Last cleared timestamp
+- Predicted overflow time
+
+### Reports
+- Type (overflow/illegal-dump/missed-pickup/scattered-waste)
+- Severity (high/medium/low)
+- Status (pending/completed)
+- Photo data
+- AI detection results
+
+### Trucks
+- Real-time location
+- Worker assignment
+- Active/inactive status
+- Route assignments
+
+### Pickups
+- Completion timestamp
+- Associated bin or report
+- Worker ID
+- Before/after documentation
+
+---
+
+## 🚀 Getting Started
+
+### Setup Google Maps API
+
+**IMPORTANT**: You must add your own Google Maps API key for the app to work:
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable the **Maps JavaScript API**
+4. Create an API key in the Credentials section
+5. Open `/components/MapView.tsx` and replace `YOUR_GOOGLE_MAPS_API_KEY` with your actual API key
+
+```typescript
+// In /components/MapView.tsx, line 46:
+script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_ACTUAL_KEY_HERE&loading=async`;
+```
+
+**Security Note**: For production use, restrict your API key by:
+- Adding HTTP referrer restrictions
+- Limiting to Maps JavaScript API only
+- Setting usage quotas
+
+### Running the App
+
+The app is ready to use! Simply:
+1. Add your Google Maps API key (see above)
+2. Open the app in your mobile browser
+3. Choose your role (Citizen or Worker)
+4. Start tracking waste in real-time
+
+---
+
+## 🔄 Real-Time Updates
+
+The system automatically refreshes data every 10 seconds to ensure all users see:
+- Latest bin statuses
+- Current truck positions
+- New citizen reports
+- Worker confirmations
+- Updated predictions
+
+---
+
+## 🎨 Design Philosophy
+
+**Mobile-First**: Designed primarily for Android devices with touch-optimized controls
+
+**Clarity**: Color-coding makes waste status instantly recognizable
+
+**Speed**: One-tap actions for common tasks
+
+**Intelligence**: AI-powered detection and predictions reduce manual effort
+
+**Transparency**: Everyone sees the same real-time data
+
+---
+
+## 📝 Notes
+
+- This is a functional prototype/demo application
+- ML detection is simulated for demonstration purposes
+- Google Maps API integration uses a demo key (replace with production key for deployment)
+- Real production deployment would require:
+  - Actual ML Kit integration with device camera
+  - Vertex AI endpoint configuration
+  - GPS tracking for truck locations
+  - Push notifications for real-time alerts
+  - User authentication system
+  - Production Google Maps API key with billing enabled
+
+---
+
+## 🌍 Impact
+
+LIVEWASTE transforms waste management from an invisible backend process into a transparent, community-driven system. By making waste flow visible like traffic, it empowers citizens to report problems and helps workers optimize their routes, creating cleaner cities through real-time collaboration.
+
+---
+
+**Built with React, Google Maps API, ML Kit Vision AI, Vertex AI, and Supabase
