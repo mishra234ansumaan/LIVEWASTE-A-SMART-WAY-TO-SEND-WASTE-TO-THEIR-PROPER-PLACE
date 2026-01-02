@@ -749,4 +749,4 @@ LIVEWASTE transforms waste management from an invisible backend process into a t
 
 ---
 
-**Built with React, Google Maps API, ML Kit Vision AI, Vertex AI, and Supabase
+Built and assembled manually using React, Google Maps API, ML Kit Vision AI, Vertex AI, and Supabase as part of a university hackathon prototype.
