@@ -485,3 +485,10 @@ export default function App() {
 
   return null;
 }
+
+// Role & UI state
+const [userRole, setUserRole] = useState<UserRole>(null);
+const [isLoading, setIsLoading] = useState(true);
+const [isInitialized, setIsInitialized] = useState(false);
+const [showLocationModal, setShowLocationModal] = useState(false);
+const [pendingRole, setPendingRole] = useState<UserRole>(null);
