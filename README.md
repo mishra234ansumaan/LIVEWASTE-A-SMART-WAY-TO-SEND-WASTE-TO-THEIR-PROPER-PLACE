@@ -541,7 +541,7 @@ Images were selected and placed intentionally for demonstration purposes within 
 **Real-time City Waste Flow Tracking - Like Google Traffic, but for Waste**
 
 A Progressive Web App that makes city waste flow visible in real-time, turning waste collection into a live, trackable system just like Google Maps shows traffic patterns.
-
+> ⚠️ Note: This project was manually designed, assembled, and tested as a university hackathon prototype to validate the concept and user experience.
 ---
 
 ## 🌟 Features
@@ -585,8 +585,8 @@ A Progressive Web App that makes city waste flow visible in real-time, turning w
 - **Key-Value Store** for data persistence
 
 ### AI & ML
-- **ML Kit Vision AI** for garbage detection from photos (simulated)
-- **Vertex AI** for predictive analytics (simulated)
+- **ML Kit Vision AI** for garbage detection from photos (simulated logic for prototype)
+- **Vertex AI** for predictive analytics (simulated predictions based on sample data)
 - Real-time waste pattern analysis
 
 ---
